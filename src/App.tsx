@@ -28,12 +28,8 @@ const App = (): JSX.Element => {
     setText({CTRLS:inputs})
   
   }
-  return (
-    <div className="container">
-      <h1>FormValidation</h1>
-      <form>
-        { text.CTRLS.map((input: INPUT) => (
-          <Input
+  const inputStyle =text.CTRLS.map((input:INPUT)=>
+    <Input
             onChange={(e:any)=>onChangeHandler(e,input.id)}
             element="input"
             key={ input.id }
@@ -48,7 +44,12 @@ const App = (): JSX.Element => {
             touchInput={ () => touchInput(input.id) }
             onCheck={()=>onCheck(input.id)}
           />
-        )) }
+  )
+  return (
+    <div className="container">
+      <h1>FormValidation</h1>
+      <form>
+        {inputStyle}
         <button disabled={ !buttonDisabeld  }
         onClick={()=>alert("hello")} style={{opacity:!buttonDisabeld ? 0.2 : 1}}  type="button">SUBMIT</button>
       </form>
