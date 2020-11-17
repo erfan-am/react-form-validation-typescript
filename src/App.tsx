@@ -12,6 +12,7 @@ const App = (): JSX.Element => {
   const onChangeHandler = (e:any, ctrlName:any) => {
     const inputs = text.CTRLS;
     inputs[ctrlName].value = e.target.value;
+    inputs[ctrlName].validation.end = true;
     inputs[ctrlName].isValid = checkValidity(e.target.value,
       inputs[ctrlName].validation,inputs)
     setText({CTRLS:inputs})
@@ -20,6 +21,12 @@ const App = (): JSX.Element => {
     const inputs = text.CTRLS;
     inputs[ctrlName].touched = true;
     setText({CTRLS:inputs})
+  }
+  const onCheck=(ctrlName:any)=>{
+    const inputs=text.CTRLS;
+    inputs[ctrlName].validation.check=true;
+    setText({CTRLS:inputs})
+  
   }
   console.log('====================================');
   console.log(text.CTRLS.map(i=>i.isValid));
@@ -37,10 +44,12 @@ const App = (): JSX.Element => {
             type={ input.type }
             label={ input.label }
             sub={ input.sub }
+            end={input.validation.end}
             error={ input.error }
             touched={ input.touched }
             isValid={ input.isValid }
-            touchInput={()=>touchInput(input.id)}
+            touchInput={ () => touchInput(input.id) }
+            onCheck={()=>onCheck(input.id)}
           />
         )) }
         <button disabled={ !buttonDisabeld }
