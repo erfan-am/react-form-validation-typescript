@@ -24,7 +24,7 @@ const App = (): JSX.Element => {
   }
   const onCheck=(ctrlName:any)=>{
     const inputs=text.CTRLS;
-    inputs[ctrlName].validation.check=true;
+    inputs[ctrlName].validation.check=!inputs[ctrlName].validation.check;
     setText({CTRLS:inputs})
   
   }
