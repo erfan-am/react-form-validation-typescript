@@ -28,9 +28,6 @@ const App = (): JSX.Element => {
     setText({CTRLS:inputs})
   
   }
-  console.log('====================================');
-  console.log(text.CTRLS.map(i=>i.isValid));
-  console.log('====================================');
   return (
     <div className="container">
       <h1>FormValidation</h1>
@@ -52,8 +49,8 @@ const App = (): JSX.Element => {
             onCheck={()=>onCheck(input.id)}
           />
         )) }
-        <button disabled={ !buttonDisabeld }
-        onClick={()=>alert("hello")}  type="button">SUBMIT</button>
+        <button disabled={ !buttonDisabeld  }
+        onClick={()=>alert("hello")} style={{opacity:!buttonDisabeld ? 0.2 : 1}}  type="button">SUBMIT</button>
       </form>
      </div>
   )
