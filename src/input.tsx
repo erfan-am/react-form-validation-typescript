@@ -8,7 +8,8 @@ const Input = (props:any) => {
         style={{border:props.isValid && props.end ? '1px solid green' : '1px solid #333'}}
         value={props.type !=="checkbox"  && props.value}
         className={`${props.type === "checkbox" && 'checkbox'}`}
-        name={props.name}
+        disabled={props.type =="checkbox" ? !props.disabled : undefined}  
+        name={ props.name }
         type={props.type}
         onClick={props.onCheck }
         onChange={props.type !=="checkbox"  ? props.onChange : undefined}

@@ -5,6 +5,7 @@ export interface INPUT{
   value?: string
   sub?: string
   error?: string
+  disabled?:boolean
   id?: string
   validation?: any
   isValid?: boolean

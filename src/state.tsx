@@ -76,7 +76,8 @@ export const ctrls =
       sub:"Agree with the terms and conditions",
       error:'',
       validation:{
-          check:false
+        check: false,
+        able:false
       },
       isValid:true,
       type:"checkbox",
